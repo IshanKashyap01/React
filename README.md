@@ -8,4 +8,6 @@ This is a 8 week course on React.
 
 1. [Introduction to React](Introduction%20to%20React/)
 
+2. [Learning JSX](Learning%20JSX/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
