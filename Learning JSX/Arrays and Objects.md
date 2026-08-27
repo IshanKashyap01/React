@@ -18,5 +18,5 @@ const App = () => (
 - By default arrays will be rendered with all the elements at once, without
 spaces
 
-- For arrays/lists, a unique key value should be given which will be used as a
-reference when the element is deleted or modified
+- For arrays/lists, a unique key value should be given which React will use to
+identify elements during re-renders

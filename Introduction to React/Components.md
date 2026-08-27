@@ -1,5 +1,10 @@
 # Functional React Components
 
+- Components are the core building block of a React app
+
+- They are reusable pieces of code that defines how a UI should *look and*
+*behave*
+
 ```js
 function Header()
 {
@@ -11,6 +16,8 @@ function Header()
     )
 }
 ```
+
+- The modern way of writing components is creating JS functions that return JSX
 
 - Component names start with a capital letter; this convention differentiates
 them from functions

@@ -1,11 +1,16 @@
 # Learning JSX
 
-## Advantages of Using JSX
-
 - React separates concerns instead of technologies by coupling rendering logic
 and UI logic
 
-- JSX allows React to show more useful errors and warning messages
+- Although, React can be used without it, modern React apps use JSX to define
+UI and embed JS for dynamic behaviour
+
+- Unlike HTML, JSX requires closing all tags, empty or otherwise
+
+- It uses *camel casing* for HTML attributes
+
+- JSX also allows React to show more useful errors and warning messages
 
 ## Embedding JS in JSX
 
@@ -20,4 +25,6 @@ const App = () => (
 )
 ```
 
-- To use variables or functions in JSX, wrap them in curly braces
+- To use JS inside JSX syntax, wrap it inside curly brackets
+
+- However, the embedded JS must return something that can be printed/rendered
