@@ -10,4 +10,6 @@ This is a 8 week course on React.
 
 2. [Learning JSX](Learning%20JSX/)
 
+3. [Score-Keeper App](Score-Keeper%20App/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
