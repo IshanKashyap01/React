@@ -14,4 +14,8 @@ This is a 8 week course on React.
 
 4. [Create-React-App](Create-React-App/)
 
+## Week 2
+
+1. [React Components - I](React%20Components%20-%20I/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
