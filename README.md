@@ -12,4 +12,6 @@ This is a 8 week course on React.
 
 3. [Score-Keeper App](Score-Keeper%20App/)
 
+4. [Create-React-App](Create-React-App/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
