@@ -18,4 +18,6 @@ This is a 8 week course on React.
 
 1. [React Components - I](React%20Components%20-%20I/)
 
+2. [React Components - II](React%20Components%20-%20II/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
