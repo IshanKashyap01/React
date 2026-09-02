@@ -20,4 +20,6 @@ This is a 8 week course on React.
 
 2. [React Components - II](React%20Components%20-%20II/)
 
+3. [Styling in React](Styling%20in%20React/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
