@@ -22,4 +22,8 @@ This is a 8 week course on React.
 
 3. [Styling in React](Styling%20in%20React/)
 
+## Week 3
+
+1. [Component Lifecycle Methods](Component%20Lifecycle%20Methods/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
