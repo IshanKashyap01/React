@@ -28,4 +28,8 @@ This is a 8 week course on React.
 
 2. [Mini Project: IPOD](Mini%20Project%20IPOD/)
 
+## Week 4
+
+1. [React Hooks](React%20Hooks/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
