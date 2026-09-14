@@ -34,4 +34,6 @@ This is a 8 week course on React.
 
 2. [Firebase](Firebase/)
 
+3. [PhotoFolio](PhotoFolio/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
