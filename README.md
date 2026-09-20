@@ -36,4 +36,8 @@ This is a 8 week course on React.
 
 3. [PhotoFolio](PhotoFolio/)
 
+## Week 5
+
+1. [Context API](Context%20API/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
