@@ -40,4 +40,6 @@ This is a 8 week course on React.
 
 1. [Context API](Context%20API/)
 
+2. [React Router](React%20Router/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
