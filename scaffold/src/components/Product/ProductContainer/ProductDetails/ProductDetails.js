@@ -5,7 +5,7 @@ import PlusIcon from "../../../UI/Icons/PlusIcon";
 
 
 const ProductDetails = ({
-  title,
+  title, price,
   onCart,
 }) => {
   const [productAddingToCart, setProductAddingToCart] = useState(false);
@@ -27,12 +27,12 @@ const ProductDetails = ({
         <p>{`${title.slice(0, 35)}...`}</p>
       </div>
       <div className={styles.productOptions}>
-        {/* <p>₹ {price}</p> */}
+        <p>₹ {price}</p>
         {onCart && (
           <div className={styles.quantityContainer}>
-            <MinusIcon handleRemove={} />
+            <MinusIcon handleRemove={() => {}} />
             {}
-            <PlusIcon handleAdd={} />
+            <PlusIcon handleAdd={() => {}} />
           </div>
         )}
       </div>
