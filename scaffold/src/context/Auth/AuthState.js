@@ -1,6 +1,7 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
-import { auth } from "../../config/firebase";
-import { useEffect, useState } from "react";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth"
+import { auth } from "../../config/firebase"
+import { useEffect, useState } from "react"
+import { toast } from "react-toastify"
 
 export default function AuthState()
 {
@@ -25,7 +26,7 @@ export default function AuthState()
         setLoading(true)
         await createUserWithEmailAndPassword(auth, email, password)
         .then(cred => updateProfile(cred.user, {displayName: name}))
-        .catch(e => setError(e.message))
+        .catch(() => toast("Please enter valid data"))
         .finally(() => setLoading(false))
     }
 
@@ -33,7 +34,7 @@ export default function AuthState()
     {
         setLoading(true)
         await signInWithEmailAndPassword(auth, email, password)
-        .catch(e => setError(e.message))
+        .catch(() => toast("Please enter valid data"))
         .finally(() => setLoading(false))
     }
 
