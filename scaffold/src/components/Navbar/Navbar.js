@@ -7,13 +7,13 @@ import OrdersIcon from "../../assets/basket.png";
 import SignIn from "../../assets/Log in.png";
 import Logout from "../../assets/Log Out.png";
 import Cart from "../../assets/cart.png";
+import { useAuth } from "../../context/Auth/AuthContext";
 
-import AuthContext from "../../context/Auth/AuthContext";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
 
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout } = useAuth();
   const isAuthenticated = user;
 
   const scrollTop = () => {
