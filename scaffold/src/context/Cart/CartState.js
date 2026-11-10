@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import { fetchCart, removeFromCart, updateCart } from "../../data/Cart";
 import { toast } from "react-toastify"
 /**
- * Returns an API for maintaining the cart functionality for the current user
+ * Returns an API for maintaining the cart functionality for the current user.
+ * If user isn't logged in, it returns only the loading state of the cart data.
  * 
  * It updates the database before the local state
  * @param {String} userId current user's id
  * @returns cart state for the current user
  */
-export default function   CartState(userId)
+export default function CartState(userId)
 {
-    const [cart, setCart] = useState()
+    const [cart, setCart] = useState({})
     const [isCartLoading, setLoading] = useState(false)
     useEffect(() => {
         if(userId)
@@ -53,7 +54,7 @@ export default function   CartState(userId)
         })
         .catch(() => toast("Failed to decrease product quantity!"))
     }
-    return {
+    return !userId ? {isCartLoading} : {
         cart,
         isCartLoading,
         addToCart: async productId => await add(productId),
