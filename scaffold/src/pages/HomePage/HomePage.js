@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 function HomePage()
 {
     // Write logic to Fetch products on app mount
-    const {products, loading} = useProducts()
+    const {products, areProductsLoading} = useProducts()
     // Write logic to Rerender the products if the search or filter parameters change
     const [filteredProducts, setFilteredProducts] = useState(products)
     const [priceRange, setPriceRange] = useState(75000)
@@ -22,7 +22,7 @@ function HomePage()
         )))
     }, [products, search, priceRange, categories])
     // Display loader while products are fetching
-    return loading ? <Loader /> : (
+    return areProductsLoading ? <Loader /> : (
         <div className={styles.homePageContainer}>
             <FilterSidebar priceRange={priceRange} setPriceRange={setPriceRange} setCategories={setCategories} />
             <form className={styles.form} onSubmit={e => e.preventDefault()}>

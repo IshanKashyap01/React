@@ -6,15 +6,15 @@ import { toast } from "react-toastify"
 export default function useProducts()
 {
     const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
+    const [areProductsLoading, setLoading] = useState(true)
     useEffect(() => {
         fetchProducts()
         .then(setProducts)
-        .catch(() => toast("Something went wrong"))
+        .catch(error => toast(error.message))
         .finally(() => setLoading(false))
     }, [])
 
-    return {products, loading}
+    return {products, areProductsLoading}
 }
 
 async function fetchProducts()
