@@ -1,15 +1,18 @@
 import styles from "./HomePage.module.css"
 import FilterSidebar from "../../components/FilterSidebar/FilterSidebar"
-import useProducts from "../../context/Products/Products"
+import { useProducts } from "../../context/Products/ProductContext"
 import Loader from "../../components/UI/Loader/Loader"
 import ProductList from "../../components/Product/ProductList/ProductList"
 import { useEffect, useState } from "react"
+import { useCart } from "../../context/Cart/CartContext"
 
 function HomePage()
 {
     // Write logic to Fetch products on app mount
     const {products, areProductsLoading} = useProducts()
-    // Write logic to Rerender the products if the search or filter parameters change
+    const {isCartLoading} = useCart()
+    // Write logic to Re-render the products if the search or filter parameters
+    // change
     const [filteredProducts, setFilteredProducts] = useState(products)
     const [priceRange, setPriceRange] = useState(75000)
     const [categories, setCategories] = useState([])
@@ -22,7 +25,7 @@ function HomePage()
         )))
     }, [products, search, priceRange, categories])
     // Display loader while products are fetching
-    return areProductsLoading ? <Loader /> : (
+    return (areProductsLoading && isCartLoading) ? <Loader /> : (
         <div className={styles.homePageContainer}>
             <FilterSidebar priceRange={priceRange} setPriceRange={setPriceRange} setCategories={setCategories} />
             <form className={styles.form} onSubmit={e => e.preventDefault()}>
