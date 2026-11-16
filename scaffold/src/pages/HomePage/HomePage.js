@@ -5,14 +5,14 @@ import Loader from "../../components/UI/Loader/Loader"
 import ProductList from "../../components/Product/ProductList/ProductList"
 import { useEffect, useState } from "react"
 import { useCart } from "../../context/Cart/CartContext"
+import { useNavigate } from "react-router-dom"
 
 function HomePage()
 {
-    // Write logic to Fetch products on app mount
+    // Fetch products and the current user's cart before mounting
     const {products, areProductsLoading} = useProducts()
-    const {isCartLoading} = useCart()
-    // Write logic to Re-render the products if the search or filter parameters
-    // change
+    const {cart, isCartLoading, addToCart, decrementItem, removeFromCart} = useCart()
+    // Re-render the products if the search or filter parameters change
     const [filteredProducts, setFilteredProducts] = useState(products)
     const [priceRange, setPriceRange] = useState(75000)
     const [categories, setCategories] = useState([])
@@ -24,20 +24,32 @@ function HomePage()
             (search === "" || product.title.toLowerCase().includes(search.toLowerCase()))
         )))
     }, [products, search, priceRange, categories])
-    // Display loader while products are fetching
+    const navigate = useNavigate()
+    async function add(productId)
+    {
+        console.log(cart)
+        cart === undefined ? navigate("/signin") : await addToCart(productId)
+    }
+    // Display loader while products and cart are fetching
     return (areProductsLoading || isCartLoading) ? <Loader /> : (
         <div className={styles.homePageContainer}>
-            <FilterSidebar priceRange={priceRange} setPriceRange={setPriceRange} setCategories={setCategories} />
+            <FilterSidebar
+                priceRange={priceRange} setPriceRange={setPriceRange}
+                setCategories={setCategories}
+            />
             <form className={styles.form} onSubmit={e => e.preventDefault()}>
                 <input 
-                    type="search" placeholder="Search By Name" className={styles.searchInput}
+                    type="search" placeholder="Search By Name" 
+                    className={styles.searchInput} 
                     onChange={e => setSearch(e.target.value)}
                 />
             </form>
-            {/* Write logic to display the product using the ProductList */}
-            <ProductList products={filteredProducts}  />
+            {/* Display the list of products */}
+            <ProductList
+                products={filteredProducts} onCart={false} addToCart={add}
+                decrementItem={decrementItem} removeFromCart={removeFromCart}
+            />
         </div>
     )
 }
-
 export default HomePage
