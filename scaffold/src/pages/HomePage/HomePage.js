@@ -25,7 +25,7 @@ function HomePage()
         )))
     }, [products, search, priceRange, categories])
     // Display loader while products are fetching
-    return (areProductsLoading && isCartLoading) ? <Loader /> : (
+    return (areProductsLoading || isCartLoading) ? <Loader /> : (
         <div className={styles.homePageContainer}>
             <FilterSidebar priceRange={priceRange} setPriceRange={setPriceRange} setCategories={setCategories} />
             <form className={styles.form} onSubmit={e => e.preventDefault()}>

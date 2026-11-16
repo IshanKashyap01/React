@@ -2,6 +2,7 @@ import { useRef } from "react"
 import styles from "./LoginPage.module.css"
 import { NavLink, useNavigate } from "react-router-dom"
 import {useAuth} from "../../context/Auth/AuthContext"
+import { toast } from "react-toastify"
 
 export default function LoginPage()
 {
@@ -16,6 +17,7 @@ export default function LoginPage()
         const password = passRef.current.value
         await login(email, password)
         .then(() => navigate("/"))
+        .catch(() => toast("Invalid credentials!"))
         
     }
     return (
@@ -24,11 +26,11 @@ export default function LoginPage()
                 <h2 className={styles.loginTitle}>Sign In</h2>
                 <input 
                     type="email" name="email" placeholder="Enter Email"
-                    ref={emailRef}
+                    ref={emailRef} required
                 />
                 <input 
                     type="password" name="password" placeholder="Enter Password"
-                    ref={passRef}
+                    ref={passRef} required
                 />
                 <button className={styles.loginBtn}>
                 {loading ? "..." : "Sign In"}

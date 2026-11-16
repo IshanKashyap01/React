@@ -1,7 +1,6 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth"
 import { auth } from "../../config/firebase"
 import { useEffect, useState } from "react"
-import { toast } from "react-toastify"
 
 export default function AuthState()
 {
@@ -26,15 +25,13 @@ export default function AuthState()
         setLoading(true)
         await createUserWithEmailAndPassword(auth, email, password)
         .then(cred => updateProfile(cred.user, {displayName: name}))
-        .catch(() => toast("Please enter valid data"))
         .finally(() => setLoading(false))
     }
 
     async function login(email, password)
     {
         setLoading(true)
-        await signInWithEmailAndPassword(auth, email, password)
-        .catch(() => toast("Please enter valid data"))
+        return signInWithEmailAndPassword(auth, email, password)
         .finally(() => setLoading(false))
     }
 
