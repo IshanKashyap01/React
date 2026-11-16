@@ -37,7 +37,7 @@ function ProductDetails(
             {onCart && (
             <div className={styles.quantityContainer}>
                 <MinusIcon handleRemove={() => {remove(decrementItem)}} />
-                {}
+                {quantity}
                 <PlusIcon handleAdd={add} />
             </div>
             )}

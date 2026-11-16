@@ -1,29 +1,45 @@
 import Loader from "../../components/UI/Loader/Loader"
 import styles from "./CartPage.module.css"
-import { useAuth } from "../../context/Auth/AuthContext"
+import { useCart } from "../../context/Cart/CartContext"
+import { useProducts } from "../../context/Products/ProductContext"
+import ProductList from "../../components/Product/ProductList/ProductList"
 
-function CartPage()
+export default function CartPage()
 {
-    const {loading} = useAuth()
-    // Write logic to Clear user cart
-
-    // Write logic to Fetch user cart products
-
-    // Write logic to Remove product from cart and cart products list
-
-    // Write logic to Remove product from the database
-
-    if (loading) return <Loader />
-
-    return (
-        <div className={styles.cartPageContainer}>
-        (
-        {/* write code here to display the item in the cart if there are items present in the cart. */}
-        ) : (
-            <h1>Cart is Empty!</h1>
-        )
+    // Fetch products and the current user's cart before mounting
+    const {products, areProductsLoading} = useProducts()
+    const {cart, isCartLoading, addToCart, decrementItem, removeFromCart} = useCart()
+    let total = 0
+    const items = products.reduce((arr, product) => {
+        const quantity = Number(cart[product.id])
+        if(quantity)
+        {
+            arr.push({...product, quantity})
+            total += Number(product.price) * quantity
+        }
+        return arr
+    }, [])
+    // Display loader while products and cart are fetching
+    if(areProductsLoading || isCartLoading)
+    {
+        return <Loader />
+    }
+    if(items.length === 0)
+    {
+        return <h1>Cart is Empty!</h1>
+    }
+    return <>
+        <div className={styles.totalPrice}>
+            <p>Total: ₹ {total}</p>
+            <button className={styles.purchaseBtn} onClick={() => {}}>
+            Purchase
+            </button>
         </div>
-    )
+        <div className={styles.cartPageContainer}>
+            <ProductList
+                products={items} onCart={true} addToCart={addToCart}
+                decrementItem={decrementItem} removeFromCart={removeFromCart}
+            />
+        </div>
+    </>
 }
-
-export default CartPage
