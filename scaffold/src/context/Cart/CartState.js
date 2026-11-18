@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchCart, removeFromCart, updateCart } from "../../data/Cart";
 import { toast } from "react-toastify"
+import { placeOrder } from "../../data/Orders";
 /**
  * Returns an API for maintaining the cart functionality for the current user.
  * If user isn't logged in, it returns only the loading state of the cart data.
@@ -54,6 +55,15 @@ export default function CartState(userId)
         })
         .catch(() => toast("Failed to decrease product quantity!"))
     }
+    async function checkout(items, totalPrice)
+    {
+        await placeOrder(userId, items, totalPrice)
+        .then(() => {
+            setCart({})
+            toast("Order Placed Successfully!")
+        })
+        .catch(error => toast(error.message))
+    }
     return !userId ? {isCartLoading} : {
         cart,
         isCartLoading,
@@ -64,7 +74,8 @@ export default function CartState(userId)
          * @param {String} productId id of the specified product
          */
         decrementItem: async productId => await (cart[productId] === 1 ? remove : decrement)(productId),
-        removeFromCart: async productId => await remove(productId)
+        removeFromCart: async productId => await remove(productId),
+        checkout
     }
 }
 
