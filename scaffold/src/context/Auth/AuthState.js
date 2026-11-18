@@ -15,8 +15,8 @@ export default function AuthState()
                 name: curr.displayName,
                 email: curr.email
             } : null)
+            setLoading(false)
         })
-        setLoading(false)
         return unsub
     }, [])
 

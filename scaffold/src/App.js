@@ -12,6 +12,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage"
 import { useAuth } from "./context/Auth/AuthContext"
 import { CartContextProvider } from "./context/Cart/CartContext"
 import { ProductContextProvider } from "./context/Products/ProductContext"
+import Loader from "./components/UI/Loader/Loader"
 
 function App()
 {
@@ -43,7 +44,11 @@ function App()
 
 function PrivateRoute({children})
 {
-    const {user} = useAuth()
+    const {user, loading} = useAuth()
+    if(loading)
+    {
+        return <Loader />
+    }
     return user ? children : <Navigate to="/signin" replace />
 }
 
