@@ -36,4 +36,16 @@ This is a 8 week course on React.
 
 3. [PhotoFolio](PhotoFolio/)
 
+## Week 5
+
+1. [Context API](Context%20API/)
+
+2. [React Router](React%20Router/)
+
+## Week 6
+
+1. [Mini Project: BusyBuy - I](Mini%20Project%20BusyBuy%20-%20I/)
+
+2. [Getting Started with Redux](Getting%20Started%20with%20Redux/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
