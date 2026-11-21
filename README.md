@@ -48,4 +48,8 @@ This is a 8 week course on React.
 
 2. [Getting Started with Redux](Getting%20Started%20with%20Redux/)
 
+## Week 7
+
+1. [Redux in React](Redux%20in%20React/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
