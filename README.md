@@ -52,4 +52,6 @@ This is a 8 week course on React.
 
 1. [Redux in React](Redux%20in%20React/)
 
+2. [Redux Toolkit](Redux%20Toolkit/)
+
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
