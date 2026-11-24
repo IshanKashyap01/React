@@ -58,6 +58,8 @@ This is a 8 week course on React.
 
 1. [Advanced Redux](Advanced%20Redux/)
 
-2. [React v19](React%20v19/)
+2. [Mini Project: BusyBuy - II](Mini%20Project%20BusyBuy%20-%20II/)
+
+3. [React v19](React%20v19/)
 
 Note: [*Commit message tags*](<https://bit.ly/commit-message-tags>)
